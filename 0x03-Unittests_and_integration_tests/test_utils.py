@@ -18,7 +18,7 @@ from client import (
 from fixtures import TEST_PAYLOAD
 
 
-class TestAccessNestedMap(unittest.TestCase):
+class TestGithubOrgClient(unittest.TestCase):
     """Tests the `GithubOrgClient` class."""
     @parameterized.expand([
         ("google", {'login': "google"}),
