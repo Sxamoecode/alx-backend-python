@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
-# countasync.py
+""" an asynchronous coroutine that takes in an integer argument """
 
 import asyncio
-async def count():
-    print("One")
-    await asyncio.sleep(1)
-    print("Two")
+import random
 
-async def main():
-    await asyncio.gather(count(), count(), count())
 
-if __name__ == "__main__":
-    import time
-    s = time.perf_counter()
-    asyncio.run(main())
-    elapsed = time.perf_counter() - s
-    print(f"{__file__} executed in {elapsed:0.2f} seconds.")
+async def wait_random(max_delay: int = 10) -> float:
+    """
+    delay between 0 and max_delay
+
+    max_delay,with a default value of 10
+    """
+    new_rand = random.uniform(0, max_delay)
+    await asyncio.sleep(new_rand)
+    return new_rand
